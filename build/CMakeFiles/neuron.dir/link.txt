@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/neuron.dir/cli/neuron.cpp.o CMakeFiles/neuron.dir/cli/push.cpp.o CMakeFiles/neuron.dir/cli/pull.cpp.o CMakeFiles/neuron.dir/cli/clone.cpp.o CMakeFiles/neuron.dir/cli/refs_remote.cpp.o -o neuron  libneuron-core.a libneuron-db.a /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libsqlite3.so 

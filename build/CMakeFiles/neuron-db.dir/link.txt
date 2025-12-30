@@ -1,2 +1,0 @@
-/usr/bin/ar qc libneuron-db.a "CMakeFiles/neuron-db.dir/db/database.cpp.o"
-/usr/bin/ranlib libneuron-db.a
