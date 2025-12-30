@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-
+#include <filesystem>
 #include "repository.hpp"
 #include "index.hpp"
 #include "tree.hpp"
@@ -10,6 +10,7 @@
 
 int neuron_push(const std::string& url);
 int neuron_pull(const std::string& url);
+int neuron_clone(const std::string& url, const std::string& dir);
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -46,6 +47,31 @@ int main(int argc, char** argv) {
         index.add(file, hash);
         index.write();
     }
+else if (cmd == "init") {
+    bool bare = false;
+    if (argc >= 3 && std::string(argv[2]) == "--bare") {
+        bare = true;
+    }
+
+    std::filesystem::path root = bare ? "." : ".";
+    std::filesystem::path neuron = root / ".neuron";
+
+    if (std::filesystem::exists(neuron)) {
+        std::cerr << "repository already initialized\n";
+        return 1;
+    }
+
+    std::filesystem::create_directories(neuron / "objects");
+    std::filesystem::create_directories(neuron / "refs");
+
+    if (!bare) {
+        std::ofstream(neuron / "refs" / "HEAD");
+    }
+
+    std::cout << "Initialized "
+              << (bare ? "bare " : "")
+              << "neuron repository\n";
+}
 
     else if (cmd == "commit") {
         if (argc < 3) {
@@ -81,7 +107,14 @@ int main(int argc, char** argv) {
     }
     return neuron_pull(argv[2]);
 }
-
+  else if (cmd == "clone") {
+            if (argc < 3) {
+                std::cerr << "neuron clone ssh://user@host/repo.git [dir]\n";
+                return 1;
+            }
+            std::string dir = (argc >= 4) ? argv[3] : "";
+            return neuron_clone(argv[2], dir);
+        }
 
     else {
         std::cerr << "unknown command\n";

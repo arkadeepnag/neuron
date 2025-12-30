@@ -181,6 +181,30 @@ neuron-http/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-http.dir/build.make CMakeFiles/neuron-http.dir/build
 .PHONY : neuron-http/fast
 
+cli/clone.o: cli/clone.cpp.o
+.PHONY : cli/clone.o
+
+# target to build an object file
+cli/clone.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron.dir/build.make CMakeFiles/neuron.dir/cli/clone.cpp.o
+.PHONY : cli/clone.cpp.o
+
+cli/clone.i: cli/clone.cpp.i
+.PHONY : cli/clone.i
+
+# target to preprocess a source file
+cli/clone.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron.dir/build.make CMakeFiles/neuron.dir/cli/clone.cpp.i
+.PHONY : cli/clone.cpp.i
+
+cli/clone.s: cli/clone.cpp.s
+.PHONY : cli/clone.s
+
+# target to generate assembly for a file
+cli/clone.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron.dir/build.make CMakeFiles/neuron.dir/cli/clone.cpp.s
+.PHONY : cli/clone.cpp.s
+
 cli/neuron.o: cli/neuron.cpp.o
 .PHONY : cli/neuron.o
 
@@ -722,6 +746,9 @@ help:
 	@echo "... neuron-db"
 	@echo "... neuron-http"
 	@echo "... neuron-ssh-handler"
+	@echo "... cli/clone.o"
+	@echo "... cli/clone.i"
+	@echo "... cli/clone.s"
 	@echo "... cli/neuron.o"
 	@echo "... cli/neuron.i"
 	@echo "... cli/neuron.s"

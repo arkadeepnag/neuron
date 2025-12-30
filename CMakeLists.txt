@@ -64,6 +64,7 @@ add_executable(neuron
     cli/neuron.cpp
     cli/push.cpp
     cli/pull.cpp
+    cli/clone.cpp
     cli/refs_remote.cpp
 )
 

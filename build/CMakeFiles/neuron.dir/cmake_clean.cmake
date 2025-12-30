@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/neuron.dir/cli/clone.cpp.o"
+  "CMakeFiles/neuron.dir/cli/clone.cpp.o.d"
   "CMakeFiles/neuron.dir/cli/neuron.cpp.o"
   "CMakeFiles/neuron.dir/cli/neuron.cpp.o.d"
   "CMakeFiles/neuron.dir/cli/pull.cpp.o"

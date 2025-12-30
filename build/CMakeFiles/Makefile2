@@ -89,7 +89,7 @@ clean: CMakeFiles/neuron-http.dir/clean
 CMakeFiles/neuron-core.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-core.dir/build.make CMakeFiles/neuron-core.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-core.dir/build.make CMakeFiles/neuron-core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target neuron-core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target neuron-core"
 .PHONY : CMakeFiles/neuron-core.dir/all
 
 # Build rule for subdir invocation for target.
@@ -115,7 +115,7 @@ CMakeFiles/neuron-core.dir/clean:
 CMakeFiles/neuron-db.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-db.dir/build.make CMakeFiles/neuron-db.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-db.dir/build.make CMakeFiles/neuron-db.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=19,20 "Built target neuron-db"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=20,21 "Built target neuron-db"
 .PHONY : CMakeFiles/neuron-db.dir/all
 
 # Build rule for subdir invocation for target.
@@ -142,12 +142,12 @@ CMakeFiles/neuron.dir/all: CMakeFiles/neuron-core.dir/all
 CMakeFiles/neuron.dir/all: CMakeFiles/neuron-db.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron.dir/build.make CMakeFiles/neuron.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron.dir/build.make CMakeFiles/neuron.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target neuron"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target neuron"
 .PHONY : CMakeFiles/neuron.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/neuron.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arkadeep/neuron/build/CMakeFiles 20
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arkadeep/neuron/build/CMakeFiles 21
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/neuron.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/arkadeep/neuron/build/CMakeFiles 0
 .PHONY : CMakeFiles/neuron.dir/rule
@@ -169,7 +169,7 @@ CMakeFiles/neuron-ssh-handler.dir/all: CMakeFiles/neuron-core.dir/all
 CMakeFiles/neuron-ssh-handler.dir/all: CMakeFiles/neuron-db.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-ssh-handler.dir/build.make CMakeFiles/neuron-ssh-handler.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-ssh-handler.dir/build.make CMakeFiles/neuron-ssh-handler.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=23,24,25,26,27 "Built target neuron-ssh-handler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=24,25,26,27,28 "Built target neuron-ssh-handler"
 .PHONY : CMakeFiles/neuron-ssh-handler.dir/all
 
 # Build rule for subdir invocation for target.
@@ -196,7 +196,7 @@ CMakeFiles/neuron-http.dir/all: CMakeFiles/neuron-core.dir/all
 CMakeFiles/neuron-http.dir/all: CMakeFiles/neuron-db.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-http.dir/build.make CMakeFiles/neuron-http.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/neuron-http.dir/build.make CMakeFiles/neuron-http.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=21,22 "Built target neuron-http"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arkadeep/neuron/build/CMakeFiles --progress-num=22,23 "Built target neuron-http"
 .PHONY : CMakeFiles/neuron-http.dir/all
 
 # Build rule for subdir invocation for target.

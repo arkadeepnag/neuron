@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/arkadeep/neuron/cli/clone.cpp" "CMakeFiles/neuron.dir/cli/clone.cpp.o" "gcc" "CMakeFiles/neuron.dir/cli/clone.cpp.o.d"
   "/home/arkadeep/neuron/cli/neuron.cpp" "CMakeFiles/neuron.dir/cli/neuron.cpp.o" "gcc" "CMakeFiles/neuron.dir/cli/neuron.cpp.o.d"
   "/home/arkadeep/neuron/cli/pull.cpp" "CMakeFiles/neuron.dir/cli/pull.cpp.o" "gcc" "CMakeFiles/neuron.dir/cli/pull.cpp.o.d"
   "/home/arkadeep/neuron/cli/push.cpp" "CMakeFiles/neuron.dir/cli/push.cpp.o" "gcc" "CMakeFiles/neuron.dir/cli/push.cpp.o.d"

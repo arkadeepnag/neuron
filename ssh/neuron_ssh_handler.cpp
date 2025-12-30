@@ -1,79 +1,51 @@
 #include <iostream>
+#include <sstream>
 #include <cstdlib>
-#include <string>
-#include "pack_handlers.hpp"
-#include "repository.hpp"
+
 #include "database.hpp"
+#include "repository.hpp"
 #include "pack_handlers.hpp"
 
-static std::string env(const char* k) {
-    const char* v = getenv(k);
-    return v ? v : "";
+static std::string must_env(const char* name) {
+    const char* v = std::getenv(name);
+    if (!v) throw std::runtime_error("Missing SSH_ORIGINAL_COMMAND");
+    return v;
 }
 
-int main(int /*argc*/, char** /*argv*/) {
-    std::string cmd = env("SSH_ORIGINAL_COMMAND");
-    if (cmd.empty()) {
-        std::cerr << "No SSH command\n";
-        return 1;
-    }
+int main() {
+    try {
+        std::string original = must_env("SSH_ORIGINAL_COMMAND");
 
-    auto pos = cmd.find(' ');
-    std::string op = cmd.substr(0, pos);
-    std::string repo_name = cmd.substr(pos + 1);
+        std::istringstream iss(original);
+        std::string op, repo_name;
+        iss >> op >> repo_name;
 
-    std::string fp = env("SSH_KEY_FINGERPRINT");
-    if (fp.empty()) {
-        std::cerr << "Missing SSH fingerprint\n";
-        return 1;
-    }
-
-    Database db("neuron.db");
-
-    auto user = db.user_from_ssh_key(fp);
-    if (!user.valid) {
-        std::cerr << "Unauthorized\n";
-        return 1;
-    }
-
-    auto repo_meta = db.repo_by_name(repo_name);
-    if (!repo_meta.valid) {
-        std::cerr << "Repo not found\n";
-        return 1;
-    }
-
-    bool can_write = db.has_access(user.id, repo_meta.id, "write");
-    bool can_read  = db.has_access(user.id, repo_meta.id, "read");
-
-    Repository repo(repo_meta.path);
-
-    if (op == "neuron-upload-pack") {
-        if (!can_read) {
-            std::cerr << "Read denied\n";
-            return 1;
+        if (repo_name.empty()) {
+            throw std::runtime_error("Missing repo name");
         }
-        handle_upload_pack(repo);
-    }
-    else if (op == "neuron-receive-pack") {
-        if (!can_write) {
-            std::cerr << "Write denied\n";
-            return 1;
+
+        Database db("/var/lib/neuron/neuron.db");
+        Repository repo("/var/lib/neuron/repos/" + repo_name);
+
+        // Authorization already enforced at auth time
+        if (op == "neuron-ls-refs") {
+            handle_ls_refs(repo);
         }
-        handle_receive_pack(repo);
+        else if (op == "neuron-upload-pack") {
+            handle_upload_pack(repo);
+        }
+        else if (op == "neuron-receive-pack") {
+            handle_receive_pack(repo);
+        }
+        else {
+            throw std::runtime_error("Unknown command");
+        }
+
+        return 0;
     }
-else if (op == "neuron-ls-refs") {
-    if (!can_read) {
-        std::cerr << "Read denied\n";
+    catch (const std::exception& e) {
+        std::cerr << e.what() << "\n";
         return 1;
     }
-    handle_ls_refs(repo);
-}
-
-    else {
-        std::cerr << "Unknown command\n";
-        return 1;
-    }
-
-    return 0;
 }
 

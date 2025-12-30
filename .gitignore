@@ -1,2 +1,6 @@
-./build
-./build/*
+# Ignore common build directories
+build/
+out/
+cmake-build-*/
+[Dd]ebug/
+[Rr]elease/
