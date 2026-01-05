@@ -1,0 +1,41 @@
+# Build directories
+/build/
+
+# CMake files and build artifacts
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/Makefile
+compile_commands.json
+
+# Binaries and object files
+*.o
+*.obj
+*.so
+*.a
+*.dll
+*.exe
+*.out
+neuron
+
+# Editor and IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Coverage and profiling
+*.gcda
+*.gcno
+coverage/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test output
+tests/*.log
